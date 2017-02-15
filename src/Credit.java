@@ -1,5 +1,6 @@
-
+import java.util.*;
 public class Credit {
+    static Scanner scan = new Scanner(System.in);
 
     /**
      * Ask user for:
@@ -13,5 +14,14 @@ public class Credit {
      * validate is y or no
      * send to receipt class
      */
+    public static double creditInfo() {
 
+        do {
+            int enterCardNumber = Validator.getInt(scan, "Enter Credit Card Number: ", 16);
+            int enterDate = Validator.getInt(scan, "Enter Date: ");
+            
+
+        }
+
+    }
 }

@@ -58,7 +58,7 @@ public class Main {
         ArrayList<Product> foodList = new ArrayList<Product>();
 
 
-        foodList.add(
+        foodList.add()
 
         try {
             FileOutputStream fos = new FileOutputStream("ProductList");

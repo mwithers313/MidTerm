@@ -7,7 +7,7 @@ public class Validator {
         if (s.isEmpty()) {
             return true;
         } else {
-            System.out.println("Please press enter: ");
+            System.out.println("Press ENTER to commit transaction: ");
             return false;
         }
     }
@@ -51,24 +51,20 @@ public class Validator {
         return i;
     }
 
-    public static int getInt(Scanner sc, String prompt,
-                             int min, int max) {
+    public static int getInt(Scanner sc, String prompt, int max) {
         int i = 0;
         boolean isValid = false;
         while (isValid == false) {
             i = getInt(sc, prompt);
-            if (i < min)
+            if (i != max)
                 System.out.println(
-                        "Error! Number must be " + min + " or greater.");
-            else if (i > max)
-                System.out.println(
-                        "Error! Number must be " + max + " or less.");
-            else
+                        "Error! Number must be " + max + " numbers");
+            else {
                 isValid = true;
+            }
         }
-        return i;
+            return i;
     }
-
     public static double getDouble(Scanner sc, String prompt) {
         double d = 0;
         boolean isValid = false;

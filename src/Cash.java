@@ -12,7 +12,7 @@ public class Cash {
      * print out cash to be changed to customer
      * send to receipt class
      */
-    public static double cashGoingin() {
+    public double cashGoingin() {
         double cashChanged = Validator.getDouble(scan, "Enter amount of cash given: ");
         double cashOut = cashChanged - Payment.total.;
         Validator.userExit(scan, "Press ENTER to Commit Transaction");

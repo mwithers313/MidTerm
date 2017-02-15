@@ -11,4 +11,5 @@ public class Receipt {
      */
 
     public printReceipt (String item, String paymenttype, double price, double total, double subtotal, double tax)
+
 }

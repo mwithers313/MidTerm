@@ -15,7 +15,7 @@ public class Credit {
      * validate is y or no
      * send to receipt class
      */
-    public static double creditInfo() {
+    public double creditInfo() {
         double cashout = Payment.total;
         Boolean complete = true;
         while (complete) {

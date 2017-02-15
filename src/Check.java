@@ -8,7 +8,7 @@ public class Check {
      * send to receipt class
      *
      */
-    public static double checkGoingIn() {
+    public double checkGoingIn() {
         int checkNumber = Validator.getInt(scan, "Enter check number: ");
         double checkOut = Payment.out;
         Boolean transactionCommit = Validator.userExit(scan, "Press ENTER to Commit Transaction");

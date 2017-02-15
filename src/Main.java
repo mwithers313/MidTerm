@@ -8,63 +8,44 @@ import java.util.Scanner;
 
 public class Main {
     public static void newTextTofile(String fileName, String Input) { //this method is a write text to file method but append is FALSE (
-
-
         Path filePath = Paths.get(fileName); //step number 1. Start with a path
-
-
         File productsFile = filePath.toFile(); //step number 2. Create a file path
-
-
         try {
             PrintWriter out = new PrintWriter(new FileOutputStream(productsFile, true));
-
-
             out.print(Input);
-
             out.close(); // this is how we close
-
         } catch (FileNotFoundException ex) {
-
         }
-
     }
+
+
+
 
 
     public static void writeTextToFile(String fileName, ArrayList<Product> productArrayList) {
-
-
         Path filePath = Paths.get(fileName);
-
         File productsFile = filePath.toFile();
-
-
         try {
             PrintWriter out = new PrintWriter(new FileOutputStream(productsFile, true));
-
             out.print(productArrayList);
-
             out.close();
-
         } catch (FileNotFoundException ex) {
         }
     }
 
 
+
+
+
+
     public static StringBuilder readTextFromFile(String fileName) {
-
-
         Path filePath = Paths.get(fileName);
-
         File productsFile = filePath.toFile();
-
         StringBuilder result = new StringBuilder();
-
         try {
             FileReader r = new FileReader(productsFile);
             BufferedReader reader = new BufferedReader(r);
             String line = reader.readLine();
-
             while (line != null) {
                 result.append(line + "\n");
                 line = reader.readLine();
@@ -79,39 +60,41 @@ public class Main {
     }
 
 
+
+
+
+
+
     public static ArrayList<Product> findCategory(String input, ArrayList<Product> productArrayList) {
-
         ArrayList<Product> ProductByItemNumber = new ArrayList<Product>();
-
         for (int i = 0; i < productArrayList.size(); i++) {
-
             if (input.equalsIgnoreCase(productArrayList.get(i).getItemNumber())) {
-
                 ProductByItemNumber.add(productArrayList.get(i));
-            }
-        }
+            }}
         return ProductByItemNumber;
     }
 
 
-    public static boolean anotherItem() { //play again loop method
 
+
+
+
+    public static boolean anotherItem() { //play again loop method
         Scanner scnr = new Scanner(System.in);
         String userInput = "";
         char answer = '-';
-
         System.out.println("Another Item? (y/n):");
-
         userInput = scnr.next();
         answer = userInput.charAt(0);
-
         if ((answer == 'Y') || (answer == 'y')) {
             return true;
-
         } else if ((answer == 'N') || (answer == 'n')) {
         }
         return false;
     }
+
+
+
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
@@ -156,6 +139,9 @@ public class Main {
             System.out.println(findCategory(itemSelected, productArrayList));
 
             anotherPurchase = anotherItem();
+
+
+        foodList.add()
 
 
         }

@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Credit {
+/*public class Credit {
     static Scanner scan = new Scanner(System.in);
 
     /**
@@ -15,7 +15,7 @@ public class Credit {
      * validate is y or no
      * send to receipt class
      */
-    public static double creditInfo() {
+   /* public static double creditInfo() {
         double cashout = Payment.total;
         Boolean complete = true;
         while (complete) {
@@ -31,3 +31,4 @@ public class Credit {
         return cashOut;
     }
 }
+*/

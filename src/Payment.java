@@ -1,7 +1,7 @@
 import java.util.*;
 import java.util.concurrent.Callable;
 
-public class Payment {
+/*public class Payment {
 
     /**
      * Total method
@@ -22,7 +22,7 @@ public class Payment {
      *
      */
 
-    public static Cash cashPayment = new Cash();
+   /* public static Cash cashPayment = new Cash();
     public static Check checkPayment = new Check();
     public static Credit creditPayment = new Credit();
 
@@ -54,3 +54,5 @@ public class Payment {
             }
             }
         }
+
+        */

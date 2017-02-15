@@ -1,4 +1,4 @@
-import java.util.*;
+/*import java.util.*;
 
 public class Cash {
     static Scanner scan = new Scanner(System.in);
@@ -12,10 +12,10 @@ public class Cash {
      * print out cash to be changed to customer
      * send to receipt class
      */
-    public static double cashGoingin() {
+  /*  public static double cashGoingin() {
         double cashChanged = Validator.getDouble(scan, "Enter amount of cash given: ");
         double cashOut = cashChanged - Payment.total.;
         Validator.userExit(scan, "Press ENTER to Commit Transaction");
         return cashOut;
     }
-}
+}*/

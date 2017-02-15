@@ -11,15 +11,12 @@ public class Main {
         Path filePath = Paths.get(fileName); //step number 1. Start with a path
         File productsFile = filePath.toFile(); //step number 2. Create a file path
         try {
-            PrintWriter out = new PrintWriter(new FileOutputStream(productsFile, true));
+            PrintWriter out = new PrintWriter(new FileOutputStream(productsFile, false));
             out.print(Input);
             out.close(); // this is how we close
         } catch (FileNotFoundException ex) {
         }
     }
-
-
-
 
 
     public static void writeTextToFile(String fileName, ArrayList<Product> productArrayList) {
@@ -32,10 +29,6 @@ public class Main {
         } catch (FileNotFoundException ex) {
         }
     }
-
-
-
-
 
 
     public static StringBuilder readTextFromFile(String fileName) {
@@ -64,21 +57,6 @@ public class Main {
 
 
 
-
-    public static ArrayList<Product> findCategory(String input, ArrayList<Product> productArrayList) {
-        ArrayList<Product> ProductByItemNumber = new ArrayList<Product>();
-        for (int i = 0; i < productArrayList.size(); i++) {
-            if (input.equalsIgnoreCase(productArrayList.get(i).getItemNumber())) {
-                ProductByItemNumber.add(productArrayList.get(i));
-            }}
-        return ProductByItemNumber;
-    }
-
-
-
-
-
-
     public static boolean anotherItem() { //play again loop method
         Scanner scnr = new Scanner(System.in);
         String userInput = "";
@@ -94,6 +72,124 @@ public class Main {
     }
 
 
+
+
+
+    public static ArrayList<subTotal> printSubTotal() {
+        Scanner scan = new Scanner(System.in);
+
+        ArrayList<subTotal> subTotalArrayList = new ArrayList<subTotal>();
+
+        boolean anotherPurchase = true;
+        while (anotherPurchase) {
+            System.out.println("Please select the item number you would like to purchase?:");
+
+            int input = scan.nextInt();
+
+            if (input == 1) {
+                System.out.println("How many Bananas would you like to purchase?: ");
+                int purchaseAmount = scan.nextInt();
+
+                double subtotal = (purchaseAmount * 2.00);
+
+                subTotalArrayList.add(new subTotal("Bananas", subtotal));
+
+            } else if (input == 2) {
+                System.out.println("How many Chickens would you like to purchase?: ");
+                int purchaseAmount = scan.nextInt();
+
+                double subtotal = (purchaseAmount * 2.00);
+
+                subTotalArrayList.add(new subTotal("Chicken", subtotal));
+
+            } else if (input == 3) {
+                System.out.println("How many Avocado would you like to purchase?: ");
+                int purchaseAmount = scan.nextInt();
+
+                double subtotal = (purchaseAmount * 2.00);
+
+                subTotalArrayList.add(new subTotal("Avocado", subtotal));
+
+            } else if (input == 4) {
+                System.out.println("How many Ground Turkey would you like to purchase?: ");
+                int purchaseAmount = scan.nextInt();
+
+                double subtotal = (purchaseAmount * 2.00);
+
+                subTotalArrayList.add(new subTotal("Ground Turkey", subtotal));
+
+            } else if (input == 5) {
+                System.out.println("How many Wheat Bread would you like to purchase?: ");
+                int purchaseAmount = scan.nextInt();
+
+                double subtotal = (purchaseAmount * 2.00);
+
+                subTotalArrayList.add(new subTotal("Wheat Bread", subtotal));
+
+            } else if (input == 6) {
+                System.out.println("How many Cereal would you like to purchase?: ");
+                int purchaseAmount = scan.nextInt();
+
+                double subtotal = (purchaseAmount * 2.00);
+
+                subTotalArrayList.add(new subTotal("Cereal", subtotal));
+
+            } else if (input == 7) {
+                System.out.println("How many Cheese would you like to purchase?: ");
+                int purchaseAmount = scan.nextInt();
+
+                double subtotal = (purchaseAmount * 2.00);
+
+                subTotalArrayList.add(new subTotal("Cheese", subtotal));
+
+            } else if (input == 8) {
+                System.out.println("How many Oatmeal would you like to purchase?: ");
+                int purchaseAmount = scan.nextInt();
+
+                double subtotal = (purchaseAmount * 2.00);
+
+                subTotalArrayList.add(new subTotal("Oatmeal", subtotal));
+
+            } else if (input == 9) {
+                System.out.println("How many M&M's would you like to purchase?: ");
+                int purchaseAmount = scan.nextInt();
+
+                double subtotal = (purchaseAmount * 2.00);
+
+                subTotalArrayList.add(new subTotal("M&M's", subtotal));
+
+            } else if (input == 10) {
+                System.out.println("How many Milk would you like to purchase?: ");
+                int purchaseAmount = scan.nextInt();
+
+                double subtotal = (purchaseAmount * 2.00);
+
+                subTotalArrayList.add(new subTotal("Milk", subtotal));
+
+            } else if (input == 11) {
+                System.out.println("How many Steak would you like to purchase?: ");
+                int purchaseAmount = scan.nextInt();
+
+                double subtotal = (purchaseAmount * 2.00);
+
+                subTotalArrayList.add(new subTotal("Steak", subtotal));
+
+            } else if (input == 12) {
+                System.out.println("How many Noodles would you like to purchase?: ");
+                int purchaseAmount = scan.nextInt();
+
+                double subtotal = (purchaseAmount * 2.00);
+
+                subTotalArrayList.add(new subTotal("Noodles", subtotal));
+
+            } else {
+                System.out.println("Please make a valid entry");
+            }
+
+            anotherPurchase = anotherItem();
+        }
+        return subTotalArrayList;
+    }
 
 
     public static void main(String[] args) {
@@ -124,32 +220,28 @@ public class Main {
         //we need to add category, description, and price
 
 
-        boolean anotherPurchase = true;
-        while (anotherPurchase) {
-            System.out.println("Please select the item number you would like to purchase?:");
+        ArrayList<subTotal> subTotalArrayList = printSubTotal(); //this is our new ArrayList with the products and prices
 
-            String itemSelected = scan.next();
+        System.out.println(subTotalArrayList);
 
-            System.out.println("How many would you like to purchase?");
+        int i = 0;
+        double sum = 0;
+        for (i = 0; i < subTotalArrayList.size(); i++)
 
-            int amountPurchased = scan.nextInt();
-
-            String item = "";
-
-            System.out.println(findCategory(itemSelected, productArrayList));
-
-            anotherPurchase = anotherItem();
+            sum = sum + subTotalArrayList.get(i).getPrice();
 
 
-        foodList.add()
+        System.out.println(sum);
 
-
-        }
+        //ok guys. Sum is a double and when you run the program you can see how everything works.
+        //Sum is the total amount of money they will spend before tax. BOOM.
 
 
     }
 
 }
+
+
 
 
 

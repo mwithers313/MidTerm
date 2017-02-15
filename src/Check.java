@@ -1,5 +1,5 @@
 import java.util.*;
-public class Check {
+/*public class Check {
     static Scanner scan = new Scanner(System.in);
     /**
      * Asks user for Check number
@@ -8,10 +8,12 @@ public class Check {
      * send to receipt class
      *
      */
-    public static double checkGoingIn() {
+  /*  public static double checkGoingIn() {
         int checkNumber = Validator.getInt(scan, "Enter check number: ");
         double checkOut = Payment.out;
         Boolean transactionCommit = Validator.userExit(scan, "Press ENTER to Commit Transaction");
         return checkOut;
     }
 }
+
+*/

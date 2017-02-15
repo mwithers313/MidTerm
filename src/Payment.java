@@ -20,4 +20,9 @@ public class Payment {
      * payment option will pull from payment classes
      *
      */
+
+    public calculatePayment(ArrayList<itemList>, double subtotal) {
+
+
+    }
 }

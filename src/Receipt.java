@@ -9,4 +9,6 @@ public class Receipt {
      * print based on payment class what form of payment was used
      *
      */
+
+    public printReceipt (String item, String paymenttype, double price, double total, double subtotal, double tax)
 }

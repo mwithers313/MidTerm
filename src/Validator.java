@@ -34,6 +34,30 @@ public class Validator {
         return i;
     }
 
+    public static int isDate(Scanner sc, String prompt, int date){
+        int i = 0;
+        boolean isValid = false;
+        while(isValid == false){
+            i = getInt(sc, prompt);
+            if(i != date)
+                System.out.println("Error! Number must be " + date + " numbers.");
+            else{
+                isValid = true;
+            }
+        }return i;
+    }
+    public static int isCVV (Scanner sc, String prompt, int cvv){
+        int i = 0;
+        boolean isValid = false;
+        while(isValid == false){
+            i = getInt(sc, prompt);
+            if(i != cvv)
+                System.out.println("Error! Number must be " + cvv + " numbers.");
+            else{
+                isValid = true;
+            }
+        }return i;
+    }
 
     public static int getInt(Scanner sc, String prompt) {
         int i = 0;

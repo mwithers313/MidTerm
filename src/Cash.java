@@ -15,7 +15,7 @@ public class Cash {
     public static double cashGoingin() {
         double cashChanged = Validator.getDouble(scan, "Enter amount of cash given: ");
         double cashOut = cashChanged - Payment.total.;
-        Boolean transactionCommit = Validator.userExit(scan, "Press ENTER to Commit Transaction");
+        Validator.userExit(scan, "Press ENTER to Commit Transaction");
         return cashOut;
     }
 }

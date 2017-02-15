@@ -1,13 +1,13 @@
-Bananas
-Chicken
-Avocado
-Ground Turkey
-Bread
-Cereal
-Milk
-Orange Juice
-Cheese
-Oatmeal
-M&M's
-Doughnut
-Cream Cheese
+
+1. Product: Bananas	 Category: Fruit	 Description: Fruit	 Price: $1.00
+2. Product: Chicken	 Category: Meat	 Description: Meat	 Price: $3.00
+3. Product: Avocado	 Category: Fruit	 Description: Fruit	 Price: $1.00
+4. Product: Ground Turkey	 Category: Meat	 Description: Meat	 Price: $5.00
+5. Product: Bread	 Category: Grain	 Description: Grain	 Price: $1.00
+6. Product: Cereal	 Category: Breakfast	 Description: Cereal	 Price: $2.00
+7. Product: Milk	 Category: Dairy	 Description: Dairy	 Price: $2.00
+8. Product: Orange Juice	 Category: Fruit	 Description: Fruit	  Price: $2.00
+9. Product: Cheese	 Category: Dairy	 Description: Dairy	 Price: $2.00
+10. Product: Oatmeal	 Category: Breakfast	 Description: Breakfast	 Price: $3.00
+11. Product: M&M's	 Category: Candy	 Description: Candy	 Price: $1.00
+12. Product: Doughnut	 Category: Junk Food	 Description: Junk Food	 Price: $1.00

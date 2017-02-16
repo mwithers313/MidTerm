@@ -9,17 +9,6 @@ import java.util.PrimitiveIterator;
 import java.util.Scanner;
 
 public class Main {
-    public static void newTextTofile(String fileName, String Input) { //this method is a write text to file method but append is FALSE (
-        Path filePath = Paths.get(fileName); //step number 1. Start with a path
-        File productsFile = filePath.toFile(); //step number 2. Create a file path
-        try {
-            PrintWriter out = new PrintWriter(new FileOutputStream(productsFile, false));
-            out.print(Input);
-            out.close(); // this is how we close
-        } catch (FileNotFoundException ex) {
-        }
-    }
-
 
     public static void writeTextToFile(String fileName, ArrayList<Product> productArrayList) {
         Path filePath = Paths.get(fileName);
@@ -219,10 +208,10 @@ public class Main {
         productArrayList.add(new Product("12", "Noodles", "Noodles", "Rice Noodles", 2.00));
         writeTextToFile("ProductList.txt", productArrayList);
 
-        System.out.println("  Item         Name         " +
-                " Category       Description     Price");
-        System.out.println("=======       =======      " +
-                " ========        =============   =====");
+        System.out.println("Item     Name         " +
+                "   Category        Description          Price");
+        System.out.println("====     =======      " +
+                "   ========        =============        =====");
 
         for (Product p : productArrayList) {
             System.out.printf(p.toString());
@@ -245,51 +234,72 @@ public class Main {
     }
 
 public static void runPOSprogram() {
+
     Scanner scan = new Scanner(System.in);
     boolean anotherOrder = true;
+    int paymentMethod = 0;
+
     while (anotherOrder) {// start of our loop
-        //System.out.println(readTextFromFile("ProductList.txt"));
+
         printMenu();
         double sum = programStart();
 
-
         System.out.println("Would you like to complete this order? (y/n)");
         String input = scan.nextLine();
-        if (input.equalsIgnoreCase("y")) {
-            //System.out.println("Subtotal: " + sum + "\nSales Tax: " + Payment.calculateTax(sum) + "\nTotal: " + Payment.calculateTotal(sum));
-            System.out.println("Subtotal: " + sum + "\n Sales Tax: " + Payment.calculateTax(sum)+ "\n Total: " + Payment.calculateTotal(sum));
-            System.out.println("*****************************************");
-            System.out.println("*   Your Receipt:                       *");
-            System.out.println("    Subtotal:   " + sum + "                     *");
-            System.out.println("         Tax:   " + Payment.calculateTax(sum)
-                    + "                    *");
-            System.out.println("         ================="  + "              *");
-            System.out.println("         Tax:   " + Payment.calculateTotal(sum)
-                    + "                    *");
 
+        if (input.equalsIgnoreCase("y")) {
+
+            System.out.println("*****************************************");
+            System.out.println("    Sales Invoice Preview:");
+            System.out.printf ("    Subtotal:     %5.2f \n",sum);
+            System.out.printf ("         Tax:     %5.2f \n", Payment.calculateTax(sum));
+            System.out.println("         =================");
+            System.out.printf ("        Total:    %5.2f \n", Payment.calculateTotal(sum));
             System.out.println("*****************************************");
 
             System.out.println("\nForm of Payment: \n1.Cash\n2.Check\n3.Credit");
-            int paymentMethod = scan.nextInt();
+
+            // System.out.println(Payment.creditInfo());
+            // scan.nextLine();
+            paymentMethod = scan.nextInt();
+
             if (paymentMethod == 1) {
                 Payment.cashGoingIn(Payment.calculateTotal(sum));
             } else if (paymentMethod == 2) {
                 Payment.checkGoingIn(Payment.calculateTotal(sum));
             } else if (paymentMethod == 3) {
-                Payment.creditInfo(sum);
+                Payment.creditInfo();
                 System.out.println(Payment.calculateTotal(sum));
-            } else if ((paymentMethod > 3) || (paymentMethod < 0)) {
+            } else if ((paymentMethod > 3) || (paymentMethod <= 0)) {
                 System.out.println("Invalid entry");
             }
         } else {
             System.out.println("Invalid entry");
         }
+        // System.out.println(paymentMethod);
+        // System.out.println(Payment.creditInfo());
+        System.out.println();
+        System.out.println("*****************************************");
+        System.out.println("    FINAL Sale:");
+        System.out.printf ("    Subtotal:     %5.2f \n",sum);
+        System.out.printf ("         Tax:     %5.2f \n", Payment.calculateTax(sum));
+        System.out.println("         =================");
+        System.out.printf ("        Total:    %5.2f \n", Payment.calculateTotal(sum));
+        System.out.println("*****************************************");
+        if (paymentMethod == 1) {
+            System.out.println("    Cash Payment");
+        }
+        else if (paymentMethod == 2)
+            System.out.println("    Check Payment");
+        else {
+            System.out.println("    Payment made with Credit Card Number " + Payment.creditInfo());
+        }
+        System.out.println("*****************************************");
         anotherOrder = anotherOrder();
     }
 
     System.out.println("Goodbye");
 }
-
 
 
     public static void main(String[] args) {

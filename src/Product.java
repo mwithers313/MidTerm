@@ -70,7 +70,7 @@ public class Product {
         public String toString() {
 
             return String.format(
-                    "%1$5s %2$15s %3$15s %4$15s  %5$10.2f \n", itemNumber, name, category, description, price);
+                    "%1$-8s %2$-15s %3$-15s %4$-15s      $ %5$5.2f \n", itemNumber, name, category, description, price);
         }
     }
 

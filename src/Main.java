@@ -1,4 +1,4 @@
-import com.sun.tools.doclets.formats.html.SourceToHTMLConverter;
+// import com.sun.tools.doclets.formats.html.SourceToHTMLConverter;
 import sun.misc.JavaSecurityProtectionDomainAccess;
 
 import java.io.*;
@@ -217,15 +217,24 @@ public class Main {
         productArrayList.add(new Product("10", "Milk", "Drink", "Dairy", 2.00));
         productArrayList.add(new Product("11", "Steak", "Meat", "Cow", 2.00));
         productArrayList.add(new Product("12", "Noodles", "Noodles", "Rice Noodles", 2.00));
-
         writeTextToFile("ProductList.txt", productArrayList);
+
+        System.out.println("  Item         Name         " +
+                " Category       Description     Price");
+        System.out.println("=======       =======      " +
+                " ========        =============   =====");
+
+        for (Product p : productArrayList) {
+            System.out.printf(p.toString());
+
+        }
 
     }
 
     public static double programStart(){
 
         ArrayList<subTotal> subTotalArrayList = printSubTotal();
-            System.out.println(subTotalArrayList);
+            System.out.println("Grocery List is: " + subTotalArrayList);
 
     int i = 0;
     double sum = 0;
@@ -237,19 +246,28 @@ public class Main {
 
 public static void runPOSprogram() {
     Scanner scan = new Scanner(System.in);
-    printMenu();
     boolean anotherOrder = true;
     while (anotherOrder) {// start of our loop
-        System.out.println(readTextFromFile("ProductList.txt"));
-
+        //System.out.println(readTextFromFile("ProductList.txt"));
+        printMenu();
         double sum = programStart();
 
 
         System.out.println("Would you like to complete this order? (y/n)");
         String input = scan.nextLine();
         if (input.equalsIgnoreCase("y")) {
-            System.out.println("Subtotal: " + sum + "\nSales Tax: " + Payment.calculateTax(sum) + "\nTotal: " + Payment.calculateTotal(sum));
+            //System.out.println("Subtotal: " + sum + "\nSales Tax: " + Payment.calculateTax(sum) + "\nTotal: " + Payment.calculateTotal(sum));
+            System.out.println("Subtotal: " + sum + "\n Sales Tax: " + Payment.calculateTax(sum)+ "\n Total: " + Payment.calculateTotal(sum));
+            System.out.println("*****************************************");
+            System.out.println("*   Your Receipt:                       *");
+            System.out.println("    Subtotal:   " + sum + "                     *");
+            System.out.println("         Tax:   " + Payment.calculateTax(sum)
+                    + "                    *");
+            System.out.println("         ================="  + "              *");
+            System.out.println("         Tax:   " + Payment.calculateTotal(sum)
+                    + "                    *");
 
+            System.out.println("*****************************************");
 
             System.out.println("\nForm of Payment: \n1.Cash\n2.Check\n3.Credit");
             int paymentMethod = scan.nextInt();

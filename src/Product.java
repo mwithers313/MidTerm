@@ -61,11 +61,17 @@ public class Product {
         this.price = price;
     }
 
+    // @Override
+    // public String toString() {
+
+    //    return itemNumber + "." + "Name:" +name + "\t" + "Category:"+category + "\t" + "Description:"+description + "\t" +"Price:" + price +"\n";
+
     @Override
-    public String toString() {
+        public String toString() {
 
-        return itemNumber + "." + "Name:" +name + "\t" + "Category:"+category + "\t" + "Description:"+description + "\t" +"Price:" + price +"\n";
-
+            return String.format(
+                    "%1$5s %2$15s %3$15s %4$15s  %5$10.2f \n", itemNumber, name, category, description, price);
+        }
     }
-}
+
 

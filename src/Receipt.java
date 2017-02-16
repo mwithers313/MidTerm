@@ -10,7 +10,6 @@
      *
      */
 
-<<<<<<< HEAD
     /*public printReceipt (String item, String paymenttype, double price, double total, double subtotal, double tax)
 =======
     public printReceipt (String item, String paymenttype, double price, double total, double subtotal, double tax)

@@ -8,7 +8,6 @@ import java.util.*;
      * send to receipt class
      *
      */
-<<<<<<< HEAD
   /*  public static double checkGoingIn() {
 =======
     public double checkGoingIn() {

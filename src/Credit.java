@@ -15,7 +15,6 @@ import java.util.*;
      * validate is y or no
      * send to receipt class
      */
-<<<<<<< HEAD
    /* public static double creditInfo() {
 =======
     public double creditInfo() {

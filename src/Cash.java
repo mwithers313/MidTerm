@@ -12,7 +12,6 @@ public class Cash {
      * print out cash to be changed to customer
      * send to receipt class
      */
-<<<<<<< HEAD
   /*  public static double cashGoingin() {
 =======
     public double cashGoingin() {

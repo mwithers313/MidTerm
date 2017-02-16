@@ -192,6 +192,12 @@ public class Main {
     }
 
 
+
+
+
+
+
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 
@@ -213,28 +219,19 @@ public class Main {
 
         writeTextToFile("ProductList.txt", productArrayList);
 
+        System.out.println(readTextFromFile("ProductList.txt"));
 
-        System.out.println("1. Banana\n" + "2. Chicken\n" + "3. Avocado\n" + "4. Ground Turkey\n" + "5. Wheat Bead\n" +
-                "6. Cereal\n" + "7. Cheese\n" + "8. Oatmeal\n" + "10. Milk\n" + "11. Steak\n" + "12. Noodles\n");
-
-        //we need to add category, description, and price
-
-
-        ArrayList<subTotal> subTotalArrayList = printSubTotal(); //this is our new ArrayList with the products and prices
+        ArrayList<subTotal> subTotalArrayList = printSubTotal();
 
         System.out.println(subTotalArrayList);
 
         int i = 0;
         double sum = 0;
         for (i = 0; i < subTotalArrayList.size(); i++)
-
             sum = sum + subTotalArrayList.get(i).getPrice();
 
 
         System.out.println(sum);
-
-        //ok guys. Sum is a double and when you run the program you can see how everything works.
-        //Sum is the total amount of money they will spend before tax. BOOM.
 
 
     }

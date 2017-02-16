@@ -15,7 +15,11 @@ import java.util.*;
      * validate is y or no
      * send to receipt class
      */
+<<<<<<< HEAD
    /* public static double creditInfo() {
+=======
+    public double creditInfo() {
+>>>>>>> 1d91890ae1c9378946164e6212ea9bcdf7178e21
         double cashout = Payment.total;
         Boolean complete = true;
         while (complete) {

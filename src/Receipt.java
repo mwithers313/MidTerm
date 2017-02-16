@@ -10,6 +10,11 @@
      *
      */
 
+<<<<<<< HEAD
     /*public printReceipt (String item, String paymenttype, double price, double total, double subtotal, double tax)
+=======
+    public printReceipt (String item, String paymenttype, double price, double total, double subtotal, double tax)
+
+>>>>>>> 1d91890ae1c9378946164e6212ea9bcdf7178e21
 }
 */

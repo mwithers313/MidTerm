@@ -8,7 +8,11 @@ import java.util.*;
      * send to receipt class
      *
      */
+<<<<<<< HEAD
   /*  public static double checkGoingIn() {
+=======
+    public double checkGoingIn() {
+>>>>>>> 1d91890ae1c9378946164e6212ea9bcdf7178e21
         int checkNumber = Validator.getInt(scan, "Enter check number: ");
         double checkOut = Payment.out;
         Boolean transactionCommit = Validator.userExit(scan, "Press ENTER to Commit Transaction");

@@ -53,10 +53,6 @@ public class Main {
     }
 
 
-
-
-
-
     public static boolean anotherItem() { //play again loop method
         Scanner scnr = new Scanner(System.in);
         String userInput = "";
@@ -72,7 +68,19 @@ public class Main {
     }
 
 
-
+    public static boolean anotherOrder() {
+        Scanner scnr = new Scanner(System.in);
+        String userInput = "";
+        char answer = '-';
+        System.out.println("Another Order? (y/n):");
+        userInput = scnr.next();
+        answer = userInput.charAt(0);
+        if ((answer == 'Y') || (answer == 'y')) {
+            return true;
+        } else if ((answer == 'N') || (answer == 'n')) {
+        }
+        return false;
+    }
 
 
     public static ArrayList<subTotal> printSubTotal() {
@@ -192,12 +200,6 @@ public class Main {
     }
 
 
-
-
-
-
-
-
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 
@@ -219,25 +221,29 @@ public class Main {
 
         writeTextToFile("ProductList.txt", productArrayList);
 
-        System.out.println(readTextFromFile("ProductList.txt"));
+        boolean anotherOrder = true;
+        while (anotherOrder) {// start of our loop
 
-        ArrayList<subTotal> subTotalArrayList = printSubTotal();
+            System.out.println(readTextFromFile("ProductList.txt"));
 
-        System.out.println(subTotalArrayList);
+            ArrayList<subTotal> subTotalArrayList = printSubTotal();
 
-        int i = 0;
-        double sum = 0;
-        for (i = 0; i < subTotalArrayList.size(); i++)
-            sum = sum + subTotalArrayList.get(i).getPrice();
+            System.out.println(subTotalArrayList);
+
+            int i = 0;
+            double sum = 0;
+            for (i = 0; i < subTotalArrayList.size(); i++)
+                sum = sum + subTotalArrayList.get(i).getPrice();
+
+            System.out.println(sum);//not needed, just to show everyone that the sum is accurate
 
 
-        System.out.println(sum);
+            anotherOrder = anotherOrder(); //this is the end of our loop and program, asks if we want to start another order
+        }
 
-
+        System.out.println("Goodbye");
     }
-
 }
-
 
 
 

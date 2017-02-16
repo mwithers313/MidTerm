@@ -1,3 +1,4 @@
+import com.sun.tools.doclets.formats.html.SourceToHTMLConverter;
 import sun.misc.JavaSecurityProtectionDomainAccess;
 
 import java.io.*;
@@ -24,7 +25,7 @@ public class Main {
         Path filePath = Paths.get(fileName);
         File productsFile = filePath.toFile();
         try {
-            PrintWriter out = new PrintWriter(new FileOutputStream(productsFile, true));
+            PrintWriter out = new PrintWriter(new FileOutputStream(productsFile, false));
             out.print(productArrayList);
             out.close();
         } catch (FileNotFoundException ex) {
@@ -237,6 +238,7 @@ public class Main {
 
 
 
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         printMenu();
@@ -246,9 +248,31 @@ public class Main {
 
             double sum = programStart();
 
-            anotherOrder = anotherOrder(); //this is the end of our loop and program, asks if we want to start another order
-        }
 
+            System.out.println("Would you like to complete this order? (y/n)");
+            String input = scan.nextLine();
+            if(input.equalsIgnoreCase("y")){
+                System.out.println("Subtotal: " + sum + "\n Sales Tax: " + Payment.calculateTax(sum)+ "\n Total: " + Payment.calcualteTotal(sum));
+
+
+                System.out.println("How would you like to pay?: \n1.Cash\n2.Check\n3.Credit");
+                int paymentMethod = scan.nextInt();
+                if(paymentMethod == 1){
+                    Payment.cashGoingIn(sum);
+                }else if(paymentMethod ==2){
+                    Payment.checkGoingIn(sum);
+                }else if(paymentMethod ==3){
+                    Payment.creditInfo(sum);
+                    System.out.println(Payment.calcualteTotal(sum));
+                }else if((paymentMethod>3) || (paymentMethod <0)){
+                    System.out.println("Invalid entry");
+                }
+
+            }else{
+                anotherOrder = anotherOrder();
+            }
+
+        }
         System.out.println("Goodbye");
     }
 }

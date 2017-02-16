@@ -2,22 +2,23 @@ import java.util.*;
 import java.util.concurrent.Callable;
 
 public class Payment {
-static Scanner scan = new Scanner(System.in);
+    static Scanner scan = new Scanner(System.in);
 
 
-
-    public double cashGoingIn(double total) {
+    public static double cashGoingIn(double total) {
         double cashChanged = Validator.getDouble(scan, "Enter amount of cash given: ");
         double cashOut = cashChanged - total;
         Validator.userExit(scan, "Press ENTER to Commit Transaction");
         return cashOut;
     }
-    public static double checkGoingIn(double total ){
+
+    public static double checkGoingIn(double total) {
         int checkNumber = Validator.getInt(scan, "Enter check number: ");
         Boolean transactionCommit = Validator.userExit(scan, "Press ENTER to Commit Transaction");
         return total;
     }
-    public static double creditInfo(double total){
+
+    public static double creditInfo(double total) {
         double cashout = total;
         Boolean complete = true;
         while (complete) {
@@ -33,21 +34,22 @@ static Scanner scan = new Scanner(System.in);
         return total;
     }
 
-    public static double calculateTax (double subtotal) {
+    public static double calculateTax(double subtotal) {
 
         double tax = 0;
 
         tax = subtotal * .06;
         return tax;
     }
-    public static double calcualteTotal(double sum){
+
+    public static double calcualteTotal(double sum) {
         double total = 0;
         total = sum * 1.06;
         return total;
     }
 
-
-    public String paymentMethod(double subtotal) {
+}
+    /**public String paymentMethod(double subtotal) {
 
         Scanner scan1 = new Scanner(System.in);
         int inputPaymentType = 0;
@@ -55,12 +57,4 @@ static Scanner scan = new Scanner(System.in);
         System.out.println("How do you want to pay?\n1.Cash\n 2.Credit \n3.Check");
         inputPaymentType = scan1.nextInt();
 
-        if(inputPaymentType == 1 ){
-            double CashOut = cashGoingIn();
-            cashGoingIn();
-
-
-
-            }
-            }
-        }
+    **/

@@ -12,83 +12,64 @@ public class Validator {
         }
     }
 
-    public static String getString(Scanner sc, String prompt) {
+    public static void getCheckNum(Scanner sc, String prompt) {
+        System.out.println(prompt);
+        String isCheckNum = sc.nextLine();
+        boolean isValid = false;
+        while (!isValid == false) {
+            if (isCheckNum.length() < 8 || isCheckNum.length() > 8) {
+                System.out.println("ERROR! Must be 8 digits");
+            } else {
+                isValid = true;
+            }
+            sc.nextLine();
+        }
+    }
+
+    public static void isDate(Scanner sc, String prompt) {
+        System.out.println(prompt);
+        String isDate = sc.nextLine();
+        boolean isValid = false;
+        while (!isValid == false) {
+            if (isDate.length() < 4 || isDate.length() > 4) {
+                System.out.println("ERROR! Must be 4 digits. Try again!");
+
+            } else {
+                isValid = true;
+            }
+        }
+    }
+
+    public static void isCVV(Scanner sc, String prompt) {
+        System.out.println(prompt);
+        String cvvNum = sc.nextLine();
+        boolean isValid = false;
+        while (!isValid == false) {
+            if (cvvNum.length() < 3 || cvvNum.length() > 3) {
+                System.out.println("ERROR! Must be 3 digits. Try again!");
+            } else {
+                isValid = true;
+            }
+        }
+    }
+
+    public static String getCardNum(Scanner sc, String prompt) {
         System.out.print(prompt);
-        String s = sc.next();  // read user entry
-        sc.nextLine();  // discard any other data entered on the line
-        return s;
-    }
-
-    public static int getInt(Scanner scan) {
-        int i = 0;
+        String creditNum = sc.nextLine();
         boolean isValid = false;
-        while (isValid == false) {
-            if (scan.hasNextInt()) {
-                i = scan.nextInt();
-                isValid = true;
-            } else {
-                System.out.println("Error! Invalid integer value. Try again.");
-            }
-            scan.nextLine();  // discard any other data entered on the line
-        }
-        return i;
-    }
-
-    public static int isDate(Scanner sc, String prompt, int date){
-        int i = 0;
-        boolean isValid = false;
-        while(isValid == false){
-            i = getInt(sc, prompt);
-            if(i != date)
-                System.out.println("Error! Number must be " + date + " numbers.");
-            else{
-                isValid = true;
-            }
-        }return i;
-    }
-    public static int isCVV (Scanner sc, String prompt, int cvv){
-        int i = 0;
-        boolean isValid = false;
-        while(isValid == false){
-            i = getInt(sc, prompt);
-            if(i != cvv)
-                System.out.println("Error! Number must be " + cvv + " numbers.");
-            else{
-                isValid = true;
-            }
-        }return i;
-    }
-
-    public static int getInt(Scanner sc, String prompt) {
-        int i = 0;
-        boolean isValid = false;
-        while (isValid == false) {
-            System.out.print(prompt);
-            if (sc.hasNextInt()) {
-                i = sc.nextInt();
-                isValid = true;
-            } else {
-                System.out.println("Error! Invalid integer value. Try again.");
-            }
-            sc.nextLine();  // discard any other data entered on the line
-        }
-        return i;
-    }
-
-    public static int getInt(Scanner sc, String prompt, int max) {
-        int i = 0;
-        boolean isValid = false;
-        while (isValid == false) {
-            i = getInt(sc, prompt);
-            if (i != max)
-                System.out.println(
-                        "Error! Number must be " + max + " numbers");
-            else {
-                isValid = true;
+        while (!isValid == false) {
+            if (creditNum.length() < 16) {
+                System.out.println("ERROR! Must be 16 digits.");
+                for (int a = 0; a < creditNum.length(); a++) {
+                    if (!Character.isDigit(creditNum.charAt(a))) {
+                        System.out.println("ERROR! Must contain all numbers. Try again!");
+                    }
+                }// discard any other data entered on the line
             }
         }
-            return i;
+        return creditNum;
     }
+
     public static double getDouble(Scanner sc, String prompt) {
         double d = 0;
         boolean isValid = false;
@@ -105,21 +86,4 @@ public class Validator {
         return d;
     }
 
-    public static double getDouble(Scanner sc, String prompt,
-                                   double min, double max) {
-        double d = 0;
-        boolean isValid = false;
-        while (isValid == false) {
-            d = getDouble(sc, prompt);
-            if (d < min)
-                System.out.println(
-                        "Error! Number must be " + min + " or greater.");
-            else if (d > max)
-                System.out.println(
-                        "Error! Number must be " + max + " or less.");
-            else
-                isValid = true;
-        }
-        return d;
-    }
 }

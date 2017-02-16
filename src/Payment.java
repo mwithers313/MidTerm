@@ -9,12 +9,13 @@ public class Payment {
         double cashChanged = Validator.getDouble(scan, "Enter amount of cash given: ");
         double cashOut = cashChanged - total;
         Validator.userExit(scan, "Press ENTER to Commit Transaction");
+        System.out.println("Change owed:  " + cashOut);
         return cashOut;
     }
 
     public static double checkGoingIn(double total) {
-        int checkNumber = Validator.getInt(scan, "Enter check number: ");
-        Boolean transactionCommit = Validator.userExit(scan, "Press ENTER to Commit Transaction");
+        Validator.getCheckNum(scan, "Enter check number: ");
+        Validator.userExit(scan, "Press ENTER to Commit Transaction");
         return total;
     }
 
@@ -22,10 +23,9 @@ public class Payment {
         double cashout = total;
         Boolean complete = true;
         while (complete) {
-            int enterCardNumber = Validator.getInt(scan, "Enter Credit Card Number: ", 16);
-
-            int enterDate = Validator.isDate(scan, "Enter Date: ", 4);
-            int enterCVV = Validator.isCVV(scan, "Enter CVV num: ", 3);
+            String enterCardNum = Validator.getCardNum(scan,"Enter Card Number: ");
+            Validator.isDate(scan, "Enter Date: ");
+            Validator.isCVV(scan, "Enter CVV num: ");
             System.out.println("Complete Transaction? (y/n)");
             if (scan.hasNext("y")) {
                 complete = false;
@@ -42,19 +42,10 @@ public class Payment {
         return tax;
     }
 
-    public static double calcualteTotal(double sum) {
+    public static double calculateTotal(double sum) {
         double total = 0;
         total = sum * 1.06;
         return total;
     }
 
 }
-    /**public String paymentMethod(double subtotal) {
-
-        Scanner scan1 = new Scanner(System.in);
-        int inputPaymentType = 0;
-
-        System.out.println("How do you want to pay?\n1.Cash\n 2.Credit \n3.Check");
-        inputPaymentType = scan1.nextInt();
-
-    **/

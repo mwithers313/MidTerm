@@ -97,7 +97,7 @@ public class Main {
             int input = scan.nextInt();
 
             if (input == 1) {
-                System.out.println("How many Bananas would you like to purchase?: ");
+                System.out.println("Bananas \nQuantity: ");
                 int purchaseAmount = scan.nextInt();
 
                 double subtotal = (purchaseAmount * 2.00);
@@ -105,7 +105,7 @@ public class Main {
                 subTotalArrayList.add(new subTotal("Bananas", subtotal));
 
             } else if (input == 2) {
-                System.out.println("How many Chickens would you like to purchase?: ");
+                System.out.println("Chicken\nQuantity: ");
                 int purchaseAmount = scan.nextInt();
 
                 double subtotal = (purchaseAmount * 2.00);
@@ -113,7 +113,7 @@ public class Main {
                 subTotalArrayList.add(new subTotal("Chicken", subtotal));
 
             } else if (input == 3) {
-                System.out.println("How many Avocado would you like to purchase?: ");
+                System.out.println("Avocado\nQuantity: ");
                 int purchaseAmount = scan.nextInt();
 
                 double subtotal = (purchaseAmount * 2.00);
@@ -121,7 +121,7 @@ public class Main {
                 subTotalArrayList.add(new subTotal("Avocado", subtotal));
 
             } else if (input == 4) {
-                System.out.println("How many Ground Turkey would you like to purchase?: ");
+                System.out.println("Ground Turkey\nQuantity: ");
                 int purchaseAmount = scan.nextInt();
 
                 double subtotal = (purchaseAmount * 2.00);
@@ -129,7 +129,7 @@ public class Main {
                 subTotalArrayList.add(new subTotal("Ground Turkey", subtotal));
 
             } else if (input == 5) {
-                System.out.println("How many Wheat Bread would you like to purchase?: ");
+                System.out.println("Wheat Bread\nQuantity: ");
                 int purchaseAmount = scan.nextInt();
 
                 double subtotal = (purchaseAmount * 2.00);
@@ -137,7 +137,7 @@ public class Main {
                 subTotalArrayList.add(new subTotal("Wheat Bread", subtotal));
 
             } else if (input == 6) {
-                System.out.println("How many Cereal would you like to purchase?: ");
+                System.out.println("Cereal\nQuantity: ");
                 int purchaseAmount = scan.nextInt();
 
                 double subtotal = (purchaseAmount * 2.00);
@@ -145,7 +145,7 @@ public class Main {
                 subTotalArrayList.add(new subTotal("Cereal", subtotal));
 
             } else if (input == 7) {
-                System.out.println("How many Cheese would you like to purchase?: ");
+                System.out.println("Cheese\nQuantity: ");
                 int purchaseAmount = scan.nextInt();
 
                 double subtotal = (purchaseAmount * 2.00);
@@ -153,7 +153,7 @@ public class Main {
                 subTotalArrayList.add(new subTotal("Cheese", subtotal));
 
             } else if (input == 8) {
-                System.out.println("How many Oatmeal would you like to purchase?: ");
+                System.out.println("Oatmeal\nQuantity: ");
                 int purchaseAmount = scan.nextInt();
 
                 double subtotal = (purchaseAmount * 2.00);
@@ -161,7 +161,7 @@ public class Main {
                 subTotalArrayList.add(new subTotal("Oatmeal", subtotal));
 
             } else if (input == 9) {
-                System.out.println("How many M&M's would you like to purchase?: ");
+                System.out.println("M&Ms\nQuantity: ");
                 int purchaseAmount = scan.nextInt();
 
                 double subtotal = (purchaseAmount * 2.00);
@@ -169,7 +169,7 @@ public class Main {
                 subTotalArrayList.add(new subTotal("M&M's", subtotal));
 
             } else if (input == 10) {
-                System.out.println("How many Milk would you like to purchase?: ");
+                System.out.println("Milk\nQuantity: ");
                 int purchaseAmount = scan.nextInt();
 
                 double subtotal = (purchaseAmount * 2.00);
@@ -177,7 +177,7 @@ public class Main {
                 subTotalArrayList.add(new subTotal("Milk", subtotal));
 
             } else if (input == 11) {
-                System.out.println("How many Steak would you like to purchase?: ");
+                System.out.println("Steak\nQuantity: ");
                 int purchaseAmount = scan.nextInt();
 
                 double subtotal = (purchaseAmount * 2.00);
@@ -185,7 +185,7 @@ public class Main {
                 subTotalArrayList.add(new subTotal("Steak", subtotal));
 
             } else if (input == 12) {
-                System.out.println("How many Noodles would you like to purchase?: ");
+                System.out.println("Noodles\nQuantity: ");
                 int purchaseAmount = scan.nextInt();
 
                 double subtotal = (purchaseAmount * 2.00);
@@ -235,45 +235,48 @@ public class Main {
     return sum;
     }
 
+public static void runPOSprogram() {
+    Scanner scan = new Scanner(System.in);
+    printMenu();
+    boolean anotherOrder = true;
+    while (anotherOrder) {// start of our loop
+        System.out.println(readTextFromFile("ProductList.txt"));
 
+        double sum = programStart();
+
+
+        System.out.println("Would you like to complete this order? (y/n)");
+        String input = scan.nextLine();
+        if (input.equalsIgnoreCase("y")) {
+            System.out.println("Subtotal: " + sum + "\nSales Tax: " + Payment.calculateTax(sum) + "\nTotal: " + Payment.calculateTotal(sum));
+
+
+            System.out.println("\nForm of Payment: \n1.Cash\n2.Check\n3.Credit");
+            int paymentMethod = scan.nextInt();
+            if (paymentMethod == 1) {
+                Payment.cashGoingIn(Payment.calculateTotal(sum));
+            } else if (paymentMethod == 2) {
+                Payment.checkGoingIn(Payment.calculateTotal(sum));
+            } else if (paymentMethod == 3) {
+                Payment.creditInfo(sum);
+                System.out.println(Payment.calculateTotal(sum));
+            } else if ((paymentMethod > 3) || (paymentMethod < 0)) {
+                System.out.println("Invalid entry");
+            }
+        } else {
+            System.out.println("Invalid entry");
+        }
+        anotherOrder = anotherOrder();
+    }
+
+    System.out.println("Goodbye");
+}
 
 
 
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        printMenu();
-        boolean anotherOrder = true;
-        while (anotherOrder) {// start of our loop
-            System.out.println(readTextFromFile("ProductList.txt"));
+    runPOSprogram();
 
-            double sum = programStart();
-
-
-            System.out.println("Would you like to complete this order? (y/n)");
-            String input = scan.nextLine();
-            if(input.equalsIgnoreCase("y")){
-                System.out.println("Subtotal: " + sum + "\n Sales Tax: " + Payment.calculateTax(sum)+ "\n Total: " + Payment.calcualteTotal(sum));
-
-
-                System.out.println("How would you like to pay?: \n1.Cash\n2.Check\n3.Credit");
-                int paymentMethod = scan.nextInt();
-                if(paymentMethod == 1){
-                    Payment.cashGoingIn(sum);
-                }else if(paymentMethod ==2){
-                    Payment.checkGoingIn(sum);
-                }else if(paymentMethod ==3){
-                    Payment.creditInfo(sum);
-                    System.out.println(Payment.calcualteTotal(sum));
-                }else if((paymentMethod>3) || (paymentMethod <0)){
-                    System.out.println("Invalid entry");
-                }
-
-            }else{
-                anotherOrder = anotherOrder();
-            }
-
-        }
-        System.out.println("Goodbye");
     }
 }
 

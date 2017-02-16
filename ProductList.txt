@@ -1,16 +1,4 @@
-[1.Banana	Fruit	Fruit	2.0
-, 2.Chicken	Meat	Meat	2.0
-, 3.Avocado	Fruit	Fruit	2.0
-, 4.Ground Turkey	Meat	Fruit	2.0
-, 5.Wheat Bread	Bread	Loaf	2.0
-, 6.Cereal	Breakfast	Food	2.0
-, 7.Cheese	Dairy	Dairy	2.0
-, 8.Oatmeal	Breakfast	Oats	2.0
-, 9.M&M's	Category	Candy	2.0
-, 10.Milk	Drink	Dairy	2.0
-, 11.Steak	Meat	Cow	2.0
-, 12.Noodles	Noodles	Rice Noodles	2.0
-][1.Name:Banana	Category:Fruit	Description:Fruit	Price:2.0
+[1.Name:Banana	Category:Fruit	Description:Fruit	Price:2.0
 , 2.Name:Chicken	Category:Meat	Description:Meat	Price:2.0
 , 3.Name:Avocado	Category:Fruit	Description:Fruit	Price:2.0
 , 4.Name:Ground Turkey	Category:Meat	Description:Fruit	Price:2.0

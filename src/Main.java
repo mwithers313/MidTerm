@@ -4,6 +4,7 @@ import java.io.*;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.PrimitiveIterator;
 import java.util.Scanner;
 
 public class Main {
@@ -199,10 +200,7 @@ public class Main {
         return subTotalArrayList;
     }
 
-
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-
+    public static void printMenu() {
         ArrayList<Product> productArrayList = new ArrayList<Product>();
 
         System.out.println("WELCOME TO THE ALL-STAR FOOD MENU!!!");
@@ -221,21 +219,28 @@ public class Main {
 
         writeTextToFile("ProductList.txt", productArrayList);
 
+    }
+
+
+
+
+
+
+
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        printMenu();
         boolean anotherOrder = true;
         while (anotherOrder) {// start of our loop
-
             System.out.println(readTextFromFile("ProductList.txt"));
-
             ArrayList<subTotal> subTotalArrayList = printSubTotal();
-
             System.out.println(subTotalArrayList);
 
             int i = 0;
             double sum = 0;
             for (i = 0; i < subTotalArrayList.size(); i++)
                 sum = sum + subTotalArrayList.get(i).getPrice();
-
-            System.out.println(sum);//not needed, just to show everyone that the sum is accurate
 
 
             anotherOrder = anotherOrder(); //this is the end of our loop and program, asks if we want to start another order

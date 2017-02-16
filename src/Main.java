@@ -1,4 +1,4 @@
-import com.sun.tools.doclets.formats.html.SourceToHTMLConverter;
+// import com.sun.tools.doclets.formats.html.SourceToHTMLConverter;
 import sun.misc.JavaSecurityProtectionDomainAccess;
 
 import java.io.*;
@@ -217,8 +217,17 @@ public class Main {
         productArrayList.add(new Product("10", "Milk", "Drink", "Dairy", 2.00));
         productArrayList.add(new Product("11", "Steak", "Meat", "Cow", 2.00));
         productArrayList.add(new Product("12", "Noodles", "Noodles", "Rice Noodles", 2.00));
-
         writeTextToFile("ProductList.txt", productArrayList);
+
+        System.out.println("  Item         Name         " +
+                " Category       Description     Price");
+        System.out.println("=======       =======      " +
+                " ========        =============   =====");
+
+        for (Product p : productArrayList) {
+            System.out.printf(p.toString());
+
+        }
 
     }
 
@@ -237,15 +246,14 @@ public class Main {
 
 
 
-
-
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        printMenu();
+        // printMenu();
         boolean anotherOrder = true;
         while (anotherOrder) {// start of our loop
-            System.out.println(readTextFromFile("ProductList.txt"));
+            // System.out.println(readTextFromFile("ProductList.txt"));
 
+            printMenu();
             double sum = programStart();
 
 

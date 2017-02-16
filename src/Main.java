@@ -281,10 +281,11 @@ public static void runPOSprogram() {
             } else if ((paymentMethod > 3) || (paymentMethod < 0)) {
                 System.out.println("Invalid entry");
             }
-        } else {
+
+        }else{
             System.out.println("Invalid entry");
         }
-        anotherOrder = anotherOrder();
+
     }
 
     System.out.println("Goodbye");

@@ -26,49 +26,83 @@ public class Validator {
         }
     }
 
-    public static void isDate(Scanner sc, String prompt) {
-        System.out.println(prompt);
-        String isDate = sc.nextLine();
-        boolean isValid = false;
-        while (!isValid == false) {
-            if (isDate.length() < 4 || isDate.length() > 4) {
-                System.out.println("ERROR! Must be 4 digits. Try again!");
-
-            } else {
-                isValid = true;
-            }
-        }
-    }
-
-    public static void isCVV(Scanner sc, String prompt) {
-        System.out.println(prompt);
-        String cvvNum = sc.nextLine();
-        boolean isValid = false;
-        while (!isValid == false) {
-            if (cvvNum.length() < 3 || cvvNum.length() > 3) {
-                System.out.println("ERROR! Must be 3 digits. Try again!");
-            } else {
-                isValid = true;
-            }
-        }
-    }
-
     public static String getCardNum(Scanner sc, String prompt) {
         System.out.print(prompt);
         String creditNum = sc.nextLine();
-        boolean isValid = false;
-        while (!isValid == false) {
-            if (creditNum.length() < 16) {
-                System.out.println("ERROR! Must be 16 digits.");
-                for (int a = 0; a < creditNum.length(); a++) {
-                    if (!Character.isDigit(creditNum.charAt(a))) {
-                        System.out.println("ERROR! Must contain all numbers. Try again!");
-                    }
-                }// discard any other data entered on the line
+        boolean isValid = true;
+        int length = creditNum.length();
+        while (isValid == true) {
+            if (length == 16) {
+                isValid = false;
+            } else {
+                System.out.println("ERROR! Must have 16 digits.");
+                creditNum = sc.nextLine();
+                length = creditNum.length();
+            }
+            for (int a = 0; a < creditNum.length(); a++) {
+                if (Character.isDigit(creditNum.charAt(a))) {
+                    isValid = false;
+                } else {
+                    System.out.println("ERROR! Must contain all numbers. Try again!");
+                    creditNum = sc.nextLine();
+                    length = creditNum.length();
+                }
             }
         }
         return creditNum;
     }
+
+    public static void isDate(Scanner sc, String prompt) {
+        System.out.println(prompt);
+        String isDate = sc.nextLine();
+        boolean isValid = true;
+        int length = isDate.length();
+        while (isValid == true) {
+            if (length ==4) {
+                isValid = false;
+            } else {
+                System.out.println("ERROR! Must be 4 digits. Try again!");
+                isDate = sc.nextLine();
+                length = isDate.length();
+            }
+            for(int a = 0; a<isDate.length(); a++){
+                if (Character.isDigit(isDate.charAt(a))){
+                    isValid = false;
+                }else{
+                    System.out.println("ERROR! Must contain all numbers. Try again!");
+                    isDate = sc.nextLine();
+                    length = isDate.length();
+                }
+            }
+        }
+    }
+
+    public static void isCVV(Scanner sc, String prompt){
+    System.out.println(prompt);
+    String isCVV = sc.nextLine();
+    boolean isValid = true;
+    int length = isCVV.length();
+        while (isValid == true) {
+        if (length ==4) {
+            isValid = false;
+        } else {
+            System.out.println("ERROR! Must be 3 digits. Try again!");
+            isCVV = sc.nextLine();
+            length = isCVV.length();
+        }
+        for(int a = 0; a<isCVV.length(); a++){
+            if (Character.isDigit(isCVV.charAt(a))){
+                isValid = false;
+            }else{
+                System.out.println("ERROR! Must contain all numbers. Try again!");
+                isCVV = sc.nextLine();
+                length = isCVV.length();
+            }
+        }
+    }
+}
+
+
 
     public static double getDouble(Scanner sc, String prompt) {
         double d = 0;

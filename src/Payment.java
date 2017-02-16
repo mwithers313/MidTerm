@@ -24,8 +24,8 @@ public class Payment {
         Boolean complete = true;
         while (complete) {
             String enterCardNum = Validator.getCardNum(scan,"Enter Card Number: ");
-            Validator.isDate(scan, "Enter Date: ");
-            Validator.isCVV(scan, "Enter CVV num: ");
+            Validator.isDate(scan, "Enter Date in MMYY format: ");
+            Validator.isCVV(scan, "Enter CVV num in ### format: ");
             System.out.println("Complete Transaction? (y/n)");
             if (scan.hasNext("y")) {
                 complete = false;

@@ -10,4 +10,16 @@
 , 10.Name:Milk	Category:Drink	Description:Dairy	Price:2.0
 , 11.Name:Steak	Category:Meat	Description:Cow	Price:2.0
 , 12.Name:Noodles	Category:Noodles	Description:Rice Noodles	Price:2.0
+][1.Name:Banana	Category:Fruit	Description:Fruit	Price:2.0
+, 2.Name:Chicken	Category:Meat	Description:Meat	Price:2.0
+, 3.Name:Avocado	Category:Fruit	Description:Fruit	Price:2.0
+, 4.Name:Ground Turkey	Category:Meat	Description:Fruit	Price:2.0
+, 5.Name:Wheat Bread	Category:Bread	Description:Loaf	Price:2.0
+, 6.Name:Cereal	Category:Breakfast	Description:Food	Price:2.0
+, 7.Name:Cheese	Category:Dairy	Description:Dairy	Price:2.0
+, 8.Name:Oatmeal	Category:Breakfast	Description:Oats	Price:2.0
+, 9.Name:M&M's	Category:Category	Description:Candy	Price:2.0
+, 10.Name:Milk	Category:Drink	Description:Dairy	Price:2.0
+, 11.Name:Steak	Category:Meat	Description:Cow	Price:2.0
+, 12.Name:Noodles	Category:Noodles	Description:Rice Noodles	Price:2.0
 ]

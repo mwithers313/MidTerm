@@ -221,9 +221,18 @@ public class Main {
 
     }
 
+    public static double programStart(){
 
+        ArrayList<subTotal> subTotalArrayList = printSubTotal();
+            System.out.println(subTotalArrayList);
 
+    int i = 0;
+    double sum = 0;
+            for (i = 0; i < subTotalArrayList.size(); i++)
+    sum = sum + subTotalArrayList.get(i).getPrice();
 
+    return sum;
+    }
 
 
 
@@ -234,14 +243,8 @@ public class Main {
         boolean anotherOrder = true;
         while (anotherOrder) {// start of our loop
             System.out.println(readTextFromFile("ProductList.txt"));
-            ArrayList<subTotal> subTotalArrayList = printSubTotal();
-            System.out.println(subTotalArrayList);
 
-            int i = 0;
-            double sum = 0;
-            for (i = 0; i < subTotalArrayList.size(); i++)
-                sum = sum + subTotalArrayList.get(i).getPrice();
-
+            double sum = programStart();
 
             anotherOrder = anotherOrder(); //this is the end of our loop and program, asks if we want to start another order
         }

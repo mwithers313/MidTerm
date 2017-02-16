@@ -56,14 +56,13 @@ public class Validator {
         System.out.println(prompt);
         String isDate = sc.nextLine();
         boolean isValid = true;
-        int length = isDate.length();
         while (isValid == true) {
-            if (length ==4) {
+            if (isDate.length() ==4) {
                 isValid = false;
             } else {
                 System.out.println("ERROR! Must be 4 digits. Try again!");
                 isDate = sc.nextLine();
-                length = isDate.length();
+                isDate.length();
             }
             for(int a = 0; a<isDate.length(); a++){
                 if (Character.isDigit(isDate.charAt(a))){
@@ -71,7 +70,7 @@ public class Validator {
                 }else{
                     System.out.println("ERROR! Must contain all numbers. Try again!");
                     isDate = sc.nextLine();
-                    length = isDate.length();
+                    isDate.length();
                 }
             }
         }

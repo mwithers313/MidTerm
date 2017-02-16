@@ -23,8 +23,8 @@ public class Payment {
         String enterCardNum = " ";
         while (complete) {
           enterCardNum = Validator.getCardNum(scan,"Enter Card Number: ");
-            Validator.isDate(scan, "Enter Date: ");
-            Validator.isCVV(scan, "Enter CVV num: ");
+            Validator.isDate(scan, "Enter Date MMDD format: ");
+            Validator.isCVV(scan, "Enter CVV num ### format: ");
             System.out.println("Complete Transaction? (y/n)");
             if (scan.hasNext("y")) {
                 complete = false;

@@ -234,7 +234,7 @@ public class Main {
     public static double programStart(){
 
         ArrayList<subTotal> subTotalArrayList = printSubTotal();
-            System.out.println(subTotalArrayList);
+            System.out.println("Grocery List is: " + subTotalArrayList);
 
     int i = 0;
     double sum = 0;
@@ -245,12 +245,12 @@ public class Main {
     }
 
 
-
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         // printMenu();
         boolean anotherOrder = true;
         while (anotherOrder) {// start of our loop
+
             // System.out.println(readTextFromFile("ProductList.txt"));
 
             printMenu();
@@ -260,8 +260,18 @@ public class Main {
             System.out.println("Would you like to complete this order? (y/n)");
             String input = scan.nextLine();
             if(input.equalsIgnoreCase("y")){
-                System.out.println("Subtotal: " + sum + "\n Sales Tax: " + Payment.calculateTax(sum)+ "\n Total: " + Payment.calcualteTotal(sum));
 
+                System.out.println("Subtotal: " + sum + "\n Sales Tax: " + Payment.calculateTax(sum)+ "\n Total: " + Payment.calcualteTotal(sum));
+                System.out.println("*****************************************");
+                System.out.println("*   Your Receipt:                       *");
+                System.out.println("    Subtotal:   " + sum + "                     *");
+                System.out.println("         Tax:   " + Payment.calculateTax(sum)
+                        + "                    *");
+                System.out.println("         ================="  + "              *");
+                System.out.println("         Tax:   " + Payment.calcualteTotal(sum)
+                        + "                    *");
+
+                System.out.println("*****************************************");
 
                 System.out.println("How would you like to pay?: \n1.Cash\n2.Check\n3.Credit");
                 int paymentMethod = scan.nextInt();
@@ -281,6 +291,9 @@ public class Main {
             }
 
         }
+
+
+
         System.out.println("Goodbye");
     }
 }

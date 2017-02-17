@@ -9,7 +9,7 @@ public class Payment {
         double cashChanged = Validator.getDouble(scan, "Enter amount of cash given: ");
         double cashOut = cashChanged - total;
         Validator.userExit(scan, "Press ENTER to Commit Transaction");
-        System.out.printf("Change owed: $ %5.2f ",cashOut);
+        System.out.printf("Change owed: $ %5.2f ", cashOut);
         return cashOut;
     }
 
@@ -22,16 +22,14 @@ public class Payment {
         Boolean complete = true;
         String enterCardNum = " ";
         while (complete) {
-          enterCardNum = Validator.getCardNum(scan,"Enter Card Number: ");
+            enterCardNum = Validator.getCardNum(scan, "Enter Card Number: ");
             Validator.isDate(scan, "Enter Date MMDD format: ");
             Validator.isCVV(scan, "Enter CVV num ### format: ");
-            System.out.println("Complete Transaction? (y/n)");
-            if (scan.hasNext("y")) {
-                complete = false;
-            }
+            Validator.userExit(scan,"Press ENTER to Commit Transaction");
+                break;
+            }return enterCardNum;
         }
-        return enterCardNum;
-    }
+
 
     public static double calculateTax(double subtotal) {
 

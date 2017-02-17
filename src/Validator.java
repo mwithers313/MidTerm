@@ -4,7 +4,7 @@ public class Validator {
     public static Boolean userExit(Scanner scan, String prompt) {
         System.out.print(prompt);
         String s = scan.nextLine();
-        if (s.isEmpty()) {
+        if (s.equalsIgnoreCase("")) {
             return true;
         } else {
             System.out.println("Press ENTER to commit transaction: ");
@@ -19,7 +19,8 @@ public class Validator {
         while (!isValid == false) {
             if (isCheckNum.length() < 8 || isCheckNum.length() > 8) {
                 System.out.println("ERROR! Must be 8 digits");
-            } else {
+                continue;
+            } else if(isCheckNum.length() == 8){
                 isValid = true;
             }
             sc.nextLine();
@@ -34,18 +35,22 @@ public class Validator {
         while (isValid == true) {
             if (length == 16) {
                 isValid = false;
-            } else {
+            } else if (length < 16 || length > 16) {
                 System.out.println("ERROR! Must have 16 digits.");
                 creditNum = sc.nextLine();
                 length = creditNum.length();
+                continue;
             }
+        }
+        while(isValid == true){
             for (int a = 0; a < creditNum.length(); a++) {
                 if (Character.isDigit(creditNum.charAt(a))) {
                     isValid = false;
                 } else {
                     System.out.println("ERROR! Must contain all numbers. Try again!");
                     creditNum = sc.nextLine();
-                    length = creditNum.length();
+                    creditNum.length();
+                    continue;
                 }
             }
         }
@@ -57,13 +62,15 @@ public class Validator {
         String isDate = sc.nextLine();
         boolean isValid = true;
         while (isValid == true) {
-            if (isDate.length() ==4) {
+            if (isDate.length() == 4) {
                 isValid = false;
-            } else {
+            } else if (isDate.length() < 4 || isDate.length() > 4) {
                 System.out.println("ERROR! Must be 4 digits. Try again!");
                 isDate = sc.nextLine();
                 isDate.length();
             }
+        }
+            while(isValid ==true){
             for(int a = 0; a<isDate.length(); a++){
                 if (Character.isDigit(isDate.charAt(a))){
                     isValid = false;
@@ -71,6 +78,7 @@ public class Validator {
                     System.out.println("ERROR! Must contain all numbers. Try again!");
                     isDate = sc.nextLine();
                     isDate.length();
+                    continue;
                 }
             }
         }
@@ -84,18 +92,22 @@ public class Validator {
         while (isValid == true) {
         if (length ==3) {
             isValid = false;
-        } else {
-            System.out.println("ERROR! Must be 3 digits. Try again!");
-            isCVV = sc.nextLine();
-            length = isCVV.length();
+            } else if (length < 3 || length > 3) {
+                System.out.println("ERROR! Must be 3 digits. Try again!");
+                isCVV = sc.nextLine();
+                length = isCVV.length();
+                continue;
+            }
         }
+        while(isValid == true){
         for(int a = 0; a<isCVV.length(); a++){
             if (Character.isDigit(isCVV.charAt(a))){
                 isValid = false;
             }else{
                 System.out.println("ERROR! Must contain all numbers. Try again!");
                 isCVV = sc.nextLine();
-                length = isCVV.length();
+                isCVV.length();
+                continue;
             }
         }
     }

@@ -50,9 +50,6 @@ public class Main {
 
 
 
-
-
-
     public static boolean anotherItem() {
         Scanner scnr = new Scanner(System.in);
         String userInput = "";
@@ -69,8 +66,6 @@ public class Main {
 
 
 
-
-
     public static boolean anotherOrder() {
         Scanner scnr = new Scanner(System.in);
         String userInput = "";
@@ -84,9 +79,6 @@ public class Main {
         }
         return false;
     }
-
-
-
 
 
     public static void printMenu() {
@@ -122,9 +114,6 @@ public class Main {
         System.out.println(readTextFromFile("ProductList.txt"));
 
     }
-
-
-
 
 
     public static ArrayList<subTotal> printSubTotal() {
@@ -270,6 +259,7 @@ public class Main {
         Scanner scan = new Scanner(System.in);
         boolean anotherOrder = true;
         int paymentMethod = 0;
+        String enterCardNum = " ";
 
         while (anotherOrder) {// start of our loop
 
@@ -299,7 +289,7 @@ public class Main {
                     } else if (paymentMethod == 2) {
                         Payment.checkGoingIn(Payment.calculateTotal(sum));
                     } else if (paymentMethod == 3) {
-                        Payment.creditInfo();
+                        enterCardNum = Payment.creditInfo();
                         System.out.println(Payment.calculateTotal(sum));
                     } else if ((paymentMethod > 3) || (paymentMethod <= 0)) {
                         System.out.println("Invalid entry");
@@ -310,21 +300,23 @@ public class Main {
                 }
 
             System.out.println();
-            System.out.println("*****************************************");
+            System.out.println("************************************************************");
             System.out.println("    FINAL Sale:");
             System.out.printf("    Subtotal:     %5.2f \n", sum);
             System.out.printf("         Tax:     %5.2f \n", Payment.calculateTax(sum));
             System.out.println("         =================");
             System.out.printf("        Total:    %5.2f \n", Payment.calculateTotal(sum));
-            System.out.println("*****************************************");
+            System.out.println("************************************************************");
             if (paymentMethod == 1) {
                 System.out.println("    Cash Payment");
             } else if (paymentMethod == 2)
                 System.out.println("    Check Payment");
             else {
-                System.out.println("    Payment made with Credit Card Number " + Payment.creditInfo());
+                String printCreditCard = "XXXX-XXXX-XXXX-" + enterCardNum.substring(12, 16);
+                System.out.println("    Payment made with Credit Card Number " + printCreditCard);
+             //      System.out.println("    Payment made with Credit Card Number ");
             }
-            System.out.println("*****************************************");
+            System.out.println("************************************************************");
             anotherOrder = anotherOrder();
         }
 

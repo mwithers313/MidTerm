@@ -82,7 +82,7 @@ public class Validator {
     boolean isValid = true;
     int length = isCVV.length();
         while (isValid == true) {
-        if (length ==4) {
+        if (length ==3) {
             isValid = false;
         } else {
             System.out.println("ERROR! Must be 3 digits. Try again!");

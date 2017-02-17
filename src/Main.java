@@ -30,9 +30,10 @@ public class Main {
         try {
             FileReader r = new FileReader(productsFile);
             BufferedReader reader = new BufferedReader(r);
-            String line = reader.readLine();
+            String line = reader.readLine().replace("[", " ");
             while (line != null) {
-                result.append(line + "\n");
+                String newLine = line.replace(",", "").replace("]","");
+                result.append(newLine + "\n");
                 line = reader.readLine();
             }
             reader.close();
@@ -73,7 +74,7 @@ public class Main {
 
                 System.out.println("WELCOME TO THE ALL-STAR FOOD MENU!!!");
 
-                productArrayList.add(new Product(" 1", " Banana", " Fruit", " Fruit", 2.00));
+                productArrayList.add(new Product("1", "Banana", "Fruit", "Fruit", 2.00));
                 productArrayList.add(new Product("2", "Chicken", "Meat", "Meat", 2.00));
                 productArrayList.add(new Product("3", "Avocado", "Fruit", "Fruit", 2.00));
                 productArrayList.add(new Product("4", "Ground Turkey", "Meat", "Fruit", 2.00));
@@ -89,9 +90,9 @@ public class Main {
                 writeTextToFile("ProductList.txt", productArrayList);
 
 
-                System.out.println("Item     Name         " +
+                System.out.println("Item      Name         " +
                         "   Category        Description          Price");
-                System.out.println("====     =======      " +
+                System.out.println("====      =======      " +
                         "   ========        =============        =====");
 
                 System.out.println(readTextFromFile("ProductList.txt"));

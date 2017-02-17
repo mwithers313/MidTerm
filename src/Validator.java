@@ -37,11 +37,9 @@ public class Validator {
 
             if (length == 16) {
                 isValid = false;
-<<<<<<< HEAD
             } else if (length < 16 || length > 16) {
-=======
+
             } else  {
->>>>>>> Updated another loop issue
                 System.out.println("ERROR! Must have 16 digits.");
                 creditNum = sc.nextLine();
                 length = creditNum.length();

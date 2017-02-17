@@ -67,7 +67,7 @@ public class Main {
 
             int paymentMethod = 0;
             String enterCardNum = " ";
-;
+
 
                 ArrayList<Product> productArrayList = new ArrayList<Product>();
 
@@ -234,6 +234,8 @@ public class Main {
 
                     System.out.println("\nForm of Payment: \n1.Cash\n2.Check\n3.Credit");
 
+                    paymentMethod = scan.nextInt();
+
                     if (paymentMethod == 1) {
                         Payment.cashGoingIn(Payment.calculateTotal(sum));
                     } else if (paymentMethod == 2) {
@@ -245,18 +247,6 @@ public class Main {
                         System.out.println("Invalid entry");
                     }
 
-                    paymentMethod = scan.nextInt();
-
-                    if (paymentMethod == 1) {
-                        Payment.cashGoingIn(Payment.calculateTotal(sum));
-                    } else if (paymentMethod == 2) {
-                        Payment.checkGoingIn(Payment.calculateTotal(sum));
-                    } else if (paymentMethod == 3) {
-                        Payment.creditInfo();
-                        System.out.println(Payment.calculateTotal(sum));
-                    } else if ((paymentMethod > 3) || (paymentMethod <= 0)) {
-                        System.out.println("Invalid entry");
-                    }
 
                     System.out.println();
                     System.out.println("************************************************************");

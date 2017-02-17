@@ -68,6 +68,7 @@ public class Main {
 
             int paymentMethod = 0;
             String enterCardNum = " ";
+            double changeReceived = 0.0;
 
 
                 ArrayList<Product> productArrayList = new ArrayList<Product>();
@@ -238,7 +239,7 @@ public class Main {
                     paymentMethod = scan.nextInt();
 
                     if (paymentMethod == 1) {
-                        Payment.cashGoingIn(Payment.calculateTotal(sum));
+                        changeReceived = Payment.cashGoingIn(Payment.calculateTotal(sum));
                     } else if (paymentMethod == 2) {
                         Payment.checkGoingIn(Payment.calculateTotal(sum));
                     } else if (paymentMethod == 3) {
@@ -258,7 +259,7 @@ public class Main {
                     System.out.printf("        Total:    %5.2f \n", Payment.calculateTotal(sum));
                     System.out.println("************************************************************");
                     if (paymentMethod == 1) {
-                        System.out.println("    Cash Payment");
+                        System.out.printf("    Cash Payment - Change received %5.2f \n", changeReceived);
                     } else if (paymentMethod == 2)
                         System.out.println("    Check Payment");
                     else {

@@ -25,9 +25,10 @@ public class Main {
         try {
             FileReader r = new FileReader(productsFile);
             BufferedReader reader = new BufferedReader(r);
-            String line = reader.readLine();
+            String line = reader.readLine().replace("[", " ");
             while (line != null) {
-                result.append(line + "\n");
+                String newLine = line.replace(",", "").replace("]","");
+                result.append(newLine + "\n");
                 line = reader.readLine();
             }
             reader.close();
@@ -63,13 +64,14 @@ public class Main {
 
             int paymentMethod = 0;
             String enterCardNum = " ";
+            double changeReceived = 0.0;
 
 
                 ArrayList<Product> productArrayList = new ArrayList<Product>();
 
                 System.out.println("WELCOME TO THE ALL-STAR FOOD MENU!!!");
 
-                productArrayList.add(new Product(" 1", " Banana", " Fruit", " Fruit", 2.00));
+                productArrayList.add(new Product("1", "Banana", "Fruit", "Fruit", 2.00));
                 productArrayList.add(new Product("2", "Chicken", "Meat", "Meat", 2.00));
                 productArrayList.add(new Product("3", "Avocado", "Fruit", "Fruit", 2.00));
                 productArrayList.add(new Product("4", "Ground Turkey", "Meat", "Fruit", 2.00));
@@ -85,9 +87,9 @@ public class Main {
                 writeTextToFile("ProductList.txt", productArrayList);
 
 
-                System.out.println("Item     Name         " +
+                System.out.println("Item      Name         " +
                         "   Category        Description          Price");
-                System.out.println("====     =======      " +
+                System.out.println("====      =======      " +
                         "   ========        =============        =====");
 
                 System.out.println(readTextFromFile("ProductList.txt"));
@@ -233,7 +235,7 @@ public class Main {
                     paymentMethod = scan.nextInt();
 
                     if (paymentMethod == 1) {
-                        Payment.cashGoingIn(Payment.calculateTotal(sum));
+                        changeReceived = Payment.cashGoingIn(Payment.calculateTotal(sum));
                     } else if (paymentMethod == 2) {
                         Payment.checkGoingIn(Payment.calculateTotal(sum));
                     } else if (paymentMethod == 3) {
@@ -253,7 +255,7 @@ public class Main {
                     System.out.printf("        Total:    %5.2f \n", Payment.calculateTotal(sum));
                     System.out.println("************************************************************");
                     if (paymentMethod == 1) {
-                        System.out.println("    Cash Payment");
+                        System.out.printf("    Cash Payment - Change received %5.2f \n", changeReceived);
                     } else if (paymentMethod == 2)
                         System.out.println("    Check Payment");
                     else {

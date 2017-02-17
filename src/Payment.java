@@ -1,10 +1,9 @@
 import java.util.*;
-import java.util.concurrent.Callable;
 
 public class Payment {
     static Scanner scan = new Scanner(System.in);
 
-
+    //Prompts for cash given vs cash owed and calculates difference
     public static double cashGoingIn(double total) {
         double cashChanged = Validator.getDouble(scan, "Enter amount of cash given: ");
         double cashOut = cashChanged - total;
@@ -12,12 +11,12 @@ public class Payment {
         System.out.printf("Change owed: $ %5.2f ", cashOut);
         return cashOut;
     }
-
+    //Prompts for the user's check number
     public static void checkGoingIn(double total) {
         Validator.getCheckNum(scan, "Enter check number: ");
         Validator.userExit(scan, "Press ENTER to Commit Transaction");
     }
-
+    //Prompts for the user's Credit Card Info
     public static String creditInfo() {
         Boolean complete = true;
         String enterCardNum = " ";
@@ -29,8 +28,7 @@ public class Payment {
                 break;
             }return enterCardNum;
         }
-
-
+    //Calculates the tax to the subtotal.
     public static double calculateTax(double subtotal) {
 
         double tax = 0;
@@ -38,7 +36,7 @@ public class Payment {
         tax = subtotal * .06;
         return tax;
     }
-
+    //Calculates the subtotal + tax = total
     public static double calculateTotal(double sum) {
         double total = 0;
         total = sum * 1.06;

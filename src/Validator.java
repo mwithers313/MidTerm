@@ -1,6 +1,8 @@
 import java.util.Scanner;
 
 public class Validator {
+
+    //Prompts the user to commit a given transaction
     public static Boolean userExit(Scanner scan, String prompt) {
         System.out.print(prompt);
         String s = scan.nextLine();
@@ -12,6 +14,7 @@ public class Validator {
         }
     }
 
+    //Validates the prompted check number
     public static void getCheckNum(Scanner sc, String prompt) {
         System.out.println(prompt);
         String isCheckNum = sc.nextLine();
@@ -27,6 +30,7 @@ public class Validator {
         }
     }
 
+    //Validates the Credit Card Number
     public static String getCardNum(Scanner sc, String prompt) {
         System.out.print(prompt);
         String creditNum = sc.nextLine();
@@ -61,6 +65,7 @@ public class Validator {
         return creditNum;
     }
 
+    //Validates the Date of the Credit Card
     public static void isDate(Scanner sc, String prompt) {
         System.out.println(prompt);
         String isDate = sc.nextLine();
@@ -88,6 +93,7 @@ public class Validator {
         }
     }
 
+    //Validates the CVV number
     public static void isCVV(Scanner sc, String prompt){
     System.out.println(prompt);
     String isCVV = sc.nextLine();
@@ -117,8 +123,7 @@ public class Validator {
     }
 }
 
-
-
+    //Validates the user is inputting a double
     public static double getDouble(Scanner sc, String prompt) {
         double d = 0;
         boolean isValid = false;

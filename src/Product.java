@@ -1,8 +1,4 @@
-import java.util.ArrayList;
-
-/**
- * Created by Michael on 2/15/2017.
- */
+//Getter and Constructor class
 public class Product {
 
     private String name;
@@ -18,7 +14,6 @@ public class Product {
         this.category = category;
         this.description = description;
         this.price = price;
-
     }
 
     public String getItemNumber() {
@@ -61,11 +56,8 @@ public class Product {
         this.price = price;
     }
 
-    // @Override
-    // public String toString() {
 
-    //    return itemNumber + "." + "Name:" +name + "\t" + "Category:"+category + "\t" + "Description:"+description + "\t" +"Price:" + price +"\n";
-
+    //Formatting and toString method
     @Override
         public String toString() {
 

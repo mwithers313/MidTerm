@@ -1,16 +1,11 @@
-// import com.sun.tools.doclets.formats.html.SourceToHTMLConverter;
-
-import sun.misc.JavaSecurityProtectionDomainAccess;
-
 import java.io.*;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.PrimitiveIterator;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
-
+    //Writes arraylist to file
     public static void writeTextToFile(String fileName, ArrayList<Product> productArrayList) {
         Path filePath = Paths.get(fileName);
         File productsFile = filePath.toFile();
@@ -22,7 +17,7 @@ public class Main {
         }
     }
 
-
+    //Reads the ArrayList from the text file.
     public static StringBuilder readTextFromFile(String fileName) {
         Path filePath = Paths.get(fileName);
         File productsFile = filePath.toFile();
@@ -45,7 +40,7 @@ public class Main {
     }
 
 
-
+    //Determines if the user wants to add another item to the shopping list.
     public static boolean anotherItem() {
         Scanner scnr = new Scanner(System.in);
         String userInput = "";
@@ -60,7 +55,8 @@ public class Main {
         return false;
     }
 
-
+    //Executes the run program in Main. Contains the arraylist to write to file and the if/else
+    //for user choice from Inventory list.
         public static void runPOSprogram () {
 
             Scanner scan = new Scanner(System.in);

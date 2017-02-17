@@ -31,7 +31,7 @@ public class subTotal {
     @Override
     public String toString() {
 
-        return product + "\t" + price;
+        return "Product: "+ product + "\t" + "Cost: $" + price;
 
     }
 }

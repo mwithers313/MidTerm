@@ -1,4 +1,5 @@
 // import com.sun.tools.doclets.formats.html.SourceToHTMLConverter;
+
 import sun.misc.JavaSecurityProtectionDomainAccess;
 
 import java.io.*;
@@ -20,6 +21,10 @@ public class Main {
         } catch (FileNotFoundException ex) {
         }
     }
+
+
+
+
 
 
     public static StringBuilder readTextFromFile(String fileName) {
@@ -44,7 +49,11 @@ public class Main {
     }
 
 
-    public static boolean anotherItem() { //play again loop method
+
+
+
+
+    public static boolean anotherItem() {
         Scanner scnr = new Scanner(System.in);
         String userInput = "";
         char answer = '-';
@@ -57,6 +66,9 @@ public class Main {
         }
         return false;
     }
+
+
+
 
 
     public static boolean anotherOrder() {
@@ -74,11 +86,52 @@ public class Main {
     }
 
 
-    public static ArrayList<subTotal> printSubTotal() {
+
+
+
+    public static void printMenu() {
         Scanner scan = new Scanner(System.in);
+        ArrayList<Product> productArrayList = new ArrayList<Product>();
 
+        System.out.println("WELCOME TO THE ALL-STAR FOOD MENU!!!");
+
+        productArrayList.add(new Product(" 1", " Banana", " Fruit", " Fruit",  2.00));
+        productArrayList.add(new Product("2", "Chicken", "Meat", "Meat", 2.00));
+        productArrayList.add(new Product("3", "Avocado", "Fruit", "Fruit", 2.00));
+        productArrayList.add(new Product("4", "Ground Turkey", "Meat", "Fruit", 2.00));
+        productArrayList.add(new Product("5", "Wheat Bread", "Bread", "Loaf", 2.00));
+        productArrayList.add(new Product("6", "Cereal", "Breakfast", "Food", 2.00));
+        productArrayList.add(new Product("7", "Cheese", "Dairy", "Dairy", 2.00));
+        productArrayList.add(new Product("8", "Oatmeal", "Breakfast", "Oats", 2.00));
+        productArrayList.add(new Product("9", "M&M's", "Category", "Candy", 2.00));
+        productArrayList.add(new Product("10", "Milk", "Drink", "Dairy", 2.00));
+        productArrayList.add(new Product("11", "Steak", "Meat", "Cow", 2.00));
+        productArrayList.add(new Product("12", "Noodles", "Noodles", "Rice Noodles", 2.00));
+
+        writeTextToFile("ProductList.txt", productArrayList);
+
+
+        System.out.println("Item     Name         " +
+                "   Category        Description          Price");
+        System.out.println("====     =======      " +
+                "   ========        =============        =====");
+
+        //for (Product p : productArrayList) {
+          //  System.out.printf(p.toString());  ok so we need to read from a file because its specifies it in instructions.
+    //}
+        System.out.println(readTextFromFile("ProductList.txt"));
+
+    }
+
+
+
+
+
+    public static ArrayList<subTotal> printSubTotal() {
+
+
+        Scanner scan = new Scanner(System.in);
         ArrayList<subTotal> subTotalArrayList = new ArrayList<subTotal>();
-
         boolean anotherPurchase = true;
         while (anotherPurchase) {
             System.out.println("Please select the item number you would like to purchase?:");
@@ -190,121 +243,103 @@ public class Main {
         return subTotalArrayList;
     }
 
-    public static void printMenu() {
-        ArrayList<Product> productArrayList = new ArrayList<Product>();
 
-        System.out.println("WELCOME TO THE ALL-STAR FOOD MENU!!!");
-        productArrayList.add(new Product("1", "Banana", "Fruit", "Fruit", 2.00));
-        productArrayList.add(new Product("2", "Chicken", "Meat", "Meat", 2.00));
-        productArrayList.add(new Product("3", "Avocado", "Fruit", "Fruit", 2.00));
-        productArrayList.add(new Product("4", "Ground Turkey", "Meat", "Fruit", 2.00));
-        productArrayList.add(new Product("5", "Wheat Bread", "Bread", "Loaf", 2.00));
-        productArrayList.add(new Product("6", "Cereal", "Breakfast", "Food", 2.00));
-        productArrayList.add(new Product("7", "Cheese", "Dairy", "Dairy", 2.00));
-        productArrayList.add(new Product("8", "Oatmeal", "Breakfast", "Oats", 2.00));
-        productArrayList.add(new Product("9", "M&M's", "Category", "Candy", 2.00));
-        productArrayList.add(new Product("10", "Milk", "Drink", "Dairy", 2.00));
-        productArrayList.add(new Product("11", "Steak", "Meat", "Cow", 2.00));
-        productArrayList.add(new Product("12", "Noodles", "Noodles", "Rice Noodles", 2.00));
-        writeTextToFile("ProductList.txt", productArrayList);
 
-        System.out.println("Item     Name         " +
-                "   Category        Description          Price");
-        System.out.println("====     =======      " +
-                "   ========        =============        =====");
 
-        for (Product p : productArrayList) {
-            System.out.printf(p.toString());
 
-        }
 
-    }
-
-    public static double programStart(){
+    public static double programStart() {
 
         ArrayList<subTotal> subTotalArrayList = printSubTotal();
-            System.out.println("Grocery List is: " + subTotalArrayList);
+        System.out.println("Grocery List is: " + subTotalArrayList);
 
-    int i = 0;
-    double sum = 0;
-            for (i = 0; i < subTotalArrayList.size(); i++)
-    sum = sum + subTotalArrayList.get(i).getPrice();
+        int i = 0;
+        double sum = 0;
+        for (i = 0; i < subTotalArrayList.size(); i++)
+            sum = sum + subTotalArrayList.get(i).getPrice();
 
-    return sum;
+        return sum;
     }
 
-public static void runPOSprogram() {
 
-    Scanner scan = new Scanner(System.in);
-    boolean anotherOrder = true;
-    int paymentMethod = 0;
 
-    while (anotherOrder) {// start of our loop
 
-        printMenu();
-        double sum = programStart();
 
-        System.out.println("Would you like to complete this order? (y/n)");
-        String input = scan.nextLine();
+    public static void runPOSprogram() {
 
-        if (input.equalsIgnoreCase("y")) {
+        Scanner scan = new Scanner(System.in);
+        boolean anotherOrder = true;
+        int paymentMethod = 0;
 
+        while (anotherOrder) {// start of our loop
+
+            printMenu();
+            double sum = programStart();
+
+            System.out.println("Would you like to complete this order? (y/n)");
+            String input = scan.nextLine();
+
+            if (input.equalsIgnoreCase("y")) {
+
+                System.out.println("*****************************************");
+                System.out.println("    Sales Invoice Preview:");
+                System.out.printf("    Subtotal:     %5.2f \n", sum);
+                System.out.printf("         Tax:     %5.2f \n", Payment.calculateTax(sum));
+                System.out.println("         =================");
+                System.out.printf("        Total:    %5.2f \n", Payment.calculateTotal(sum));
+                System.out.println("*****************************************");
+
+                
+                    System.out.println("\nForm of Payment: \n1.Cash\n2.Check\n3.Credit");
+
+                    paymentMethod = scan.nextInt();
+
+                    if (paymentMethod == 1) {
+                        Payment.cashGoingIn(Payment.calculateTotal(sum));
+                    } else if (paymentMethod == 2) {
+                        Payment.checkGoingIn(Payment.calculateTotal(sum));
+                    } else if (paymentMethod == 3) {
+                        Payment.creditInfo();
+                        System.out.println(Payment.calculateTotal(sum));
+                    } else if ((paymentMethod > 3) || (paymentMethod <= 0)) {
+                        System.out.println("Invalid entry");
+                    }
+
+                } else{
+                    System.out.println("Invalid entry");
+                }
+
+            System.out.println();
             System.out.println("*****************************************");
-            System.out.println("    Sales Invoice Preview:");
-            System.out.printf ("    Subtotal:     %5.2f \n",sum);
-            System.out.printf ("         Tax:     %5.2f \n", Payment.calculateTax(sum));
+            System.out.println("    FINAL Sale:");
+            System.out.printf("    Subtotal:     %5.2f \n", sum);
+            System.out.printf("         Tax:     %5.2f \n", Payment.calculateTax(sum));
             System.out.println("         =================");
-            System.out.printf ("        Total:    %5.2f \n", Payment.calculateTotal(sum));
+            System.out.printf("        Total:    %5.2f \n", Payment.calculateTotal(sum));
             System.out.println("*****************************************");
-
-            System.out.println("\nForm of Payment: \n1.Cash\n2.Check\n3.Credit");
-
-            // System.out.println(Payment.creditInfo());
-            // scan.nextLine();
-            paymentMethod = scan.nextInt();
-
             if (paymentMethod == 1) {
-                Payment.cashGoingIn(Payment.calculateTotal(sum));
-            } else if (paymentMethod == 2) {
-                Payment.checkGoingIn(Payment.calculateTotal(sum));
-            } else if (paymentMethod == 3) {
-                Payment.creditInfo();
-                System.out.println(Payment.calculateTotal(sum));
-            } else if ((paymentMethod > 3) || (paymentMethod <= 0)) {
-                System.out.println("Invalid entry");
+                System.out.println("    Cash Payment");
+            } else if (paymentMethod == 2)
+                System.out.println("    Check Payment");
+            else {
+                System.out.println("    Payment made with Credit Card Number " + Payment.creditInfo());
             }
+            System.out.println("*****************************************");
+            anotherOrder = anotherOrder();
+        }
 
-        }else{
-            System.out.println("Invalid entry");
-        }
-        // System.out.println(paymentMethod);
-        // System.out.println(Payment.creditInfo());
-        System.out.println();
-        System.out.println("*****************************************");
-        System.out.println("    FINAL Sale:");
-        System.out.printf ("    Subtotal:     %5.2f \n",sum);
-        System.out.printf ("         Tax:     %5.2f \n", Payment.calculateTax(sum));
-        System.out.println("         =================");
-        System.out.printf ("        Total:    %5.2f \n", Payment.calculateTotal(sum));
-        System.out.println("*****************************************");
-        if (paymentMethod == 1) {
-            System.out.println("    Cash Payment");
-        }
-        else if (paymentMethod == 2)
-            System.out.println("    Check Payment");
-        else {
-            System.out.println("    Payment made with Credit Card Number " + Payment.creditInfo());
-        }
-        System.out.println("*****************************************");
-        anotherOrder = anotherOrder();
+        System.out.println("Goodbye");
     }
 
-    System.out.println("Goodbye");
-}
+
+
+
+
+
 
 
     public static void main(String[] args) {
-    runPOSprogram();
+        runPOSprogram();
 
     }
 }
